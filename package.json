@@ -1,0 +1,30 @@
+{
+  "name": "kyber",
+  "version": "0.0.2",
+  "description": "A directive template engine for Node.js",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@alphatr/eslint-config-node": "^1.1.0",
+    "eslint": "^4.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:kyberjs/kyber.git"
+  },
+  "keywords": [
+    "kyberjs",
+    "kyber"
+  ],
+  "author": {
+    "name": "alphatr",
+    "email": "alphatr@alphatr.com"
+  },
+  "license": "MIT"
+}
