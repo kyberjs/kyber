@@ -109,7 +109,7 @@ const Environment = class Environment {
     }
 
     async renderString(src, ctx, options = {}) {
-        const tmpl = new Template(src, this, options.name, options.path, null, false, this.options);
+        const tmpl = new Template(src, this, options.name, options.path, null, this.options);
         return await tmpl.render(ctx);
     }
 
