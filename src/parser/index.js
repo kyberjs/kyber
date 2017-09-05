@@ -126,6 +126,7 @@ const parser = {
         root._children.forEach(child => {
             if (child.nodeType === nodeType.TEXT_NODE) {
                 child.collapse(options, tags, inPreformattedTag);
+                child.parseExpression(options);
             }
         });
         tags.parseTransforms(root);
