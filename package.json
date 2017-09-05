@@ -10,13 +10,15 @@
   "devDependencies": {
     "@alphatr/eslint-config-node": "^1.1.0",
     "ava": "^0.22.0",
+    "coveralls": "^2.13.1",
     "eslint": "^4.2.0",
     "nyc": "^11.1.0"
   },
   "scripts": {
     "test": "npm run lint && npm run test-cov",
     "test-cov": "nyc ava test/case/ && nyc report --reporter=html",
-    "lint": "eslint ./src/ index.js"
+    "lint": "eslint ./src/ index.js",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
