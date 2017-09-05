@@ -9,10 +9,14 @@
   "dependencies": {},
   "devDependencies": {
     "@alphatr/eslint-config-node": "^1.1.0",
-    "eslint": "^4.2.0"
+    "ava": "^0.22.0",
+    "eslint": "^4.2.0",
+    "nyc": "^11.1.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run lint && npm run test-cov",
+    "test-cov": "nyc ava test/case/ && nyc report --reporter=html",
+    "lint": "eslint ./src/ index.js"
   },
   "repository": {
     "type": "git",
