@@ -13,6 +13,6 @@ module.exports = {
             return `(await (async function(){if(${childCode}){return ${childCode};}else{return ${children};}}()))`;
         }
 
-        return childCode || children;
+        return childCode !== '""' ? childCode : children;
     }
 };

@@ -110,6 +110,7 @@ const Environment = class Environment {
 
     async renderString(src, ctx, options = {}) {
         const tmpl = new Template(src, this, options.name, options.path, null, this.options);
+        this.tpls[options.name || 'inline'] = tmpl;
         return await tmpl.render(ctx);
     }
 

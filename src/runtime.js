@@ -66,6 +66,7 @@ const Runtime = class Runtime {
                 }
             });
         }
+
         return Array.from(classSet).filter(item => item).join(' ');
     }
 

@@ -24,8 +24,10 @@ const compileAttrs = function compileAttrs(attrs, element, env, template) {
         }
 
         if (!value) {
-            if (!removeEmpty || attr.value) {
+            if (attr.value) {
                 attrCode.add(`${name}=${quote}${attr.value}${quote}`, true);
+            } else if (!removeEmpty) {
+                attrCode.add(`${name}`, true);
             }
 
             return;
@@ -47,7 +49,7 @@ const compileAttrs = function compileAttrs(attrs, element, env, template) {
             return attrCode.add(emptyCode.combine(''));
         }
 
-        return valueCode.combine();
+        attrCode.add(valueCode.combine());
     });
 
     return attrCode.combine();

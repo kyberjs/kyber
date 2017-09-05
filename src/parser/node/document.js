@@ -6,14 +6,9 @@ const Document = class Document extends Base {
         this._children = [];
     }
 
-    toString() {
-        return this._children.map(child => {
-            return child.toString();
-        }).join('');
-    }
-
-    compile(...args) {
-        return this.compileChildren(...args);
+    async compile(...args) {
+        const children = await this.compileChildren(...args);
+        return children || JSON.stringify('');
     }
 
     addDoctype(doctypeElement) {

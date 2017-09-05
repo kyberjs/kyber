@@ -1,6 +1,7 @@
 // Copyright (c) 2013-present, Yuxi (Evan) You
 // https://github.com/vuejs/vue/blob/dev/src/compiler/parser/filter-parser.js
 
+/* eslint-disable */
 const validDivisionCharRE = /[\w).+\-_$\]]/;
 
 const wrapFilter = function wrapFilter(exp, filter) {
@@ -106,11 +107,16 @@ const parseFilters = function parseFilters(exp, autoescape) {
         expression = 'await ' + expression;
     }
 
-    const safeIndex = filters.indexOf('safe');
-    if (safeIndex === -1) {
-        filters.push('escape');
-    } else {
-        filters.splice(safeIndex, 1);
+    if (autoescape) {
+        const safeIndex = filters.indexOf('safe');
+        const escapeIndex = filters.indexOf('escape');
+        if (safeIndex === -1) {
+            if (escapeIndex === -1) {
+                filters.push('escape');
+            }
+        } else {
+            filters.splice(safeIndex, 1);
+        }
     }
 
     if (filters) {

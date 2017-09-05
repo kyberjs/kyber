@@ -1,14 +1,15 @@
+const utils = require('../utils');
 const filterParser = require('../parser/filters-parser');
 
 const defaultDirective = {
     parse(element, attr, tags, index) {
         if (!attr.value) {
-            return element.addAttr(attr, index);
+            return element.addAttr({name: utils.kebabcase(attr.key)}, index);
         }
 
         const exp = filterParser.parse(attr.value.trim());
         const parsedAttr = {
-            name: attr.key,
+            name: utils.kebabcase(attr.key),
             expression: `_str(${exp})`
         };
 

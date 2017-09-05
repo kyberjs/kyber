@@ -9,10 +9,6 @@ const Comment = class Comment extends Base {
     compile() {
         return JSON.stringify(`<!--${this.comment}-->`);
     }
-
-    toString() {
-        return `<!--${this.comment}-->`;
-    }
 };
 
 module.exports = Comment;

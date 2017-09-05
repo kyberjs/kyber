@@ -38,7 +38,7 @@ const filters = {
     },
 
     safe(str) {
-        return escape(normalize(str, '').toString());
+        return normalize(str, '').toString();
     },
 
     first(arr) {

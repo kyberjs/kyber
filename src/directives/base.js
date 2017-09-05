@@ -10,8 +10,8 @@ const ifDirective = {
             const children = await condition.block.compileChildren(env, template);
             const tag = await condition.block.compileTag(env, template, children);
 
-            ifCode.addIf(condition.key === 'if', `if(${exp}){return ${tag};}`);
-            ifCode.addIf(condition.key === 'elseif', `else if(${exp}){return ${tag};}`);
+            ifCode.addIf(condition.key === 'if', `if(${condition.exp}){return ${tag};}`);
+            ifCode.addIf(condition.key === 'elseif', `else if(${condition.exp}){return ${tag};}`);
 
             if (condition.key === 'else') {
                 hasElse = true;
@@ -112,6 +112,7 @@ const elseDirective = {
         const prev = element.findPrevElement(true);
 
         if (!prev || !(prev.hasDirective('if') || prev.hasDirective('elseif'))) {
+            element.addDirective(attr.key, null);
             return console.warn(`"else" used on <${element.tag}> without corresponding "if" or "elseif".`);
         }
 
@@ -130,6 +131,7 @@ const elseifDirective = {
         const prev = element.findPrevElement(true);
 
         if (!prev || !(prev.hasDirective('if') || prev.hasDirective('elseif'))) {
+            element.addDirective(attr.key, attr.value);
             return console.warn(`"else-if" used on <${element.tag}> without corresponding "if" or "elseif".`);
         }
 

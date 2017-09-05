@@ -64,6 +64,14 @@ const utils = {
         return str.toLowerCase().replace(/-([a-z])/i, (all, first) => first.toUpperCase());
     },
 
+    kebabcase(str) {
+        if (str.indexOf('-') > -1) {
+            return str;
+        }
+
+        return str.replace(/([A-Z])/, char => '-' + char.toLowerCase());
+    },
+
     makeMap,
 
     Code

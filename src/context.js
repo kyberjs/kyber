@@ -6,7 +6,7 @@ const Context = class Context {
 
         this.ctx = Object.create(null);
         for (const k in ctx) {
-            if (ctx.hasOwnProperty(k)) {
+            if (Object.prototype.hasOwnProperty.call(ctx, k)) {
                 this.ctx[k] = ctx[k];
             }
         }
@@ -22,7 +22,7 @@ const Context = class Context {
     context() {
         const handler = {
             get(target, name) {
-                if (target[name]) {
+                if (target[name] || Object.prototype.hasOwnProperty.call(target, name)) {
                     return target[name];
                 }
 

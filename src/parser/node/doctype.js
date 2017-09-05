@@ -12,10 +12,6 @@ const Doctype = class Doctype extends Base {
         const text = template.options.useShortDoctype ? shortDoctype : this.text;
         return new utils.Code().encode(text);
     }
-
-    toString() {
-        return this.text;
-    }
 };
 
 module.exports = Doctype;
