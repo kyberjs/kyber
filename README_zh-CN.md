@@ -1,6 +1,8 @@
 # KyberJS
 
-[![NPM][npm-version-image]][npm-version-url] [![travis][travis-image]][travis-url]
+[![NPM][npm-version-image]][npm-version-url]
+[![travis][travis-image]][travis-url]
+[![Coverage][coveralls-image]][coveralls-url]
 
 指令驱动的 Node.js 服务端模板引擎
 
@@ -67,5 +69,7 @@ MIT
 
 [npm-version-image]: https://img.shields.io/npm/v/kyber.svg?style=flat-square
 [npm-version-url]: https://www.npmjs.com/package/kyber
+[coveralls-image]: https://img.shields.io/coveralls/kyberjs/kyber.svg?style=flat-square
+[coveralls-url]: https://coveralls.io/github/kyberjs/kyber?branch=master
 [travis-image]: https://img.shields.io/travis/kyberjs/kyber/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/kyberjs/kyber
